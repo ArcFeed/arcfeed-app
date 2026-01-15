@@ -5,26 +5,26 @@ export default function PricingPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-purple-50">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md border-b border-slate-200 z-50">
+      <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md border-b border-slate-200/50 z-50 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <Link href="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-purple-600 to-blue-500 rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-gradient-to-br from-purple-600 to-blue-500 rounded-xl flex items-center justify-center shadow-md">
                 <span className="text-white font-bold text-lg">⚡</span>
               </div>
               <span className="text-xl font-bold text-gradient">ArcFeed</span>
             </Link>
             <div className="hidden md:flex space-x-8">
-              <Link href="/" className="text-slate-600 hover:text-primary transition">Home</Link>
-              <Link href="/demo" className="text-slate-600 hover:text-primary transition">Demo</Link>
-              <Link href="/docs" className="text-slate-600 hover:text-primary transition">Docs</Link>
+              <Link href="/" className="text-slate-600 hover:text-primary transition-all duration-200 font-medium">Home</Link>
+              <Link href="/demo" className="text-slate-600 hover:text-primary transition-all duration-200 font-medium">Demo</Link>
+              <Link href="/docs" className="text-slate-600 hover:text-primary transition-all duration-200 font-medium">Docs</Link>
               <Link href="/pricing" className="text-primary font-semibold">Pricing</Link>
             </div>
-            <a 
-              href="http://localhost:3000" 
+            <a
+              href="http://localhost:3000"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 bg-gradient-to-r from-arc-blue to-arc-purple text-white rounded-lg font-medium hover:shadow-lg transition"
+              className="px-5 py-2.5 bg-gradient-to-r from-arc-blue to-arc-purple text-white rounded-xl font-medium hover:shadow-glow-md transition-all duration-300 hover:scale-105"
             >
               Launch App →
             </a>
@@ -46,13 +46,13 @@ export default function PricingPage() {
 
           {/* Pricing Calculator */}
           <div className="mb-16">
-            <div className="bg-slate-900 text-white rounded-3xl p-8 md:p-12">
+            <div className="bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-3xl p-8 md:p-12 shadow-2xl border border-slate-700">
               <PricingWidget />
             </div>
           </div>
 
           {/* Pricing Table */}
-          <div className="bg-white rounded-2xl shadow-xl overflow-hidden mb-16">
+          <div className="bg-white rounded-3xl shadow-2xl overflow-hidden mb-16 border border-slate-100">
             <div className="p-8 md:p-12">
               <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
                 Data Product Pricing
@@ -60,62 +60,62 @@ export default function PricingPage() {
               <div className="overflow-x-auto">
                 <table className="w-full">
                   <thead>
-                    <tr className="border-b border-slate-200">
-                      <th className="text-left py-4 px-4 font-semibold text-slate-900">Data Product</th>
-                      <th className="text-left py-4 px-4 font-semibold text-slate-900">Description</th>
-                      <th className="text-right py-4 px-4 font-semibold text-slate-900">Price (USDC)</th>
+                    <tr className="border-b-2 border-slate-200">
+                      <th className="text-left py-4 px-4 font-bold text-slate-900">Data Product</th>
+                      <th className="text-left py-4 px-4 font-bold text-slate-900">Description</th>
+                      <th className="text-right py-4 px-4 font-bold text-slate-900">Price (USDC)</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-100">
-                    <tr className="hover:bg-slate-50 transition">
+                    <tr className="hover:bg-purple-50 transition-colors duration-200">
                       <td className="py-4 px-4 font-medium text-slate-900">Aave Yields</td>
                       <td className="py-4 px-4 text-slate-600">Current APY rates for Aave V3 lending pools</td>
                       <td className="py-4 px-4 text-right font-mono text-purple-600">$0.002</td>
                     </tr>
-                    <tr className="hover:bg-slate-50 transition">
+                    <tr className="hover:bg-purple-50 transition-colors duration-200">
                       <td className="py-4 px-4 font-medium text-slate-900">Compound Yields</td>
                       <td className="py-4 px-4 text-slate-600">Real-time yield data from Compound Finance</td>
-                      <td className="py-4 px-4 text-right font-mono text-purple-600">$0.002</td>
+                      <td className="py-4 px-4 text-right font-mono text-purple-600 font-bold">$0.002</td>
                     </tr>
-                    <tr className="hover:bg-slate-50 transition">
+                    <tr className="hover:bg-purple-50 transition-colors duration-200">
                       <td className="py-4 px-4 font-medium text-slate-900">Uniswap V3 Pools</td>
                       <td className="py-4 px-4 text-slate-600">Liquidity pool stats and fee APRs</td>
-                      <td className="py-4 px-4 text-right font-mono text-purple-600">$0.003</td>
+                      <td className="py-4 px-4 text-right font-mono text-purple-600 font-bold">$0.003</td>
                     </tr>
-                    <tr className="hover:bg-slate-50 transition">
+                    <tr className="hover:bg-purple-50 transition-colors duration-200">
                       <td className="py-4 px-4 font-medium text-slate-900">Curve Pool Stats</td>
                       <td className="py-4 px-4 text-slate-600">Stablecoin pool yields and volumes</td>
-                      <td className="py-4 px-4 text-right font-mono text-purple-600">$0.002</td>
+                      <td className="py-4 px-4 text-right font-mono text-purple-600 font-bold">$0.002</td>
                     </tr>
-                    <tr className="hover:bg-slate-50 transition">
+                    <tr className="hover:bg-purple-50 transition-colors duration-200">
                       <td className="py-4 px-4 font-medium text-slate-900">Top 10 Yields</td>
                       <td className="py-4 px-4 text-slate-600">Highest yielding opportunities across all protocols</td>
-                      <td className="py-4 px-4 text-right font-mono text-purple-600">$0.005</td>
+                      <td className="py-4 px-4 text-right font-mono text-purple-600 font-bold">$0.005</td>
                     </tr>
-                    <tr className="hover:bg-slate-50 transition">
+                    <tr className="hover:bg-purple-50 transition-colors duration-200">
                       <td className="py-4 px-4 font-medium text-slate-900">Protocol TVL</td>
                       <td className="py-4 px-4 text-slate-600">Total value locked for major DeFi protocols</td>
-                      <td className="py-4 px-4 text-right font-mono text-purple-600">$0.002</td>
+                      <td className="py-4 px-4 text-right font-mono text-purple-600 font-bold">$0.002</td>
                     </tr>
-                    <tr className="hover:bg-slate-50 transition">
+                    <tr className="hover:bg-purple-50 transition-colors duration-200">
                       <td className="py-4 px-4 font-medium text-slate-900">Chain TVL</td>
                       <td className="py-4 px-4 text-slate-600">TVL breakdown by blockchain network</td>
-                      <td className="py-4 px-4 text-right font-mono text-purple-600">$0.002</td>
+                      <td className="py-4 px-4 text-right font-mono text-purple-600 font-bold">$0.002</td>
                     </tr>
-                    <tr className="hover:bg-slate-50 transition">
+                    <tr className="hover:bg-purple-50 transition-colors duration-200">
                       <td className="py-4 px-4 font-medium text-slate-900">Stablecoin Yields</td>
                       <td className="py-4 px-4 text-slate-600">USDC, USDT, DAI lending rates across platforms</td>
-                      <td className="py-4 px-4 text-right font-mono text-purple-600">$0.003</td>
+                      <td className="py-4 px-4 text-right font-mono text-purple-600 font-bold">$0.003</td>
                     </tr>
-                    <tr className="hover:bg-slate-50 transition">
+                    <tr className="hover:bg-purple-50 transition-colors duration-200">
                       <td className="py-4 px-4 font-medium text-slate-900">ETH Staking Yields</td>
                       <td className="py-4 px-4 text-slate-600">Liquid staking APRs from Lido, Rocket Pool, etc.</td>
-                      <td className="py-4 px-4 text-right font-mono text-purple-600">$0.002</td>
+                      <td className="py-4 px-4 text-right font-mono text-purple-600 font-bold">$0.002</td>
                     </tr>
-                    <tr className="hover:bg-slate-50 transition">
+                    <tr className="hover:bg-purple-50 transition-colors duration-200">
                       <td className="py-4 px-4 font-medium text-slate-900">All Yields Snapshot</td>
                       <td className="py-4 px-4 text-slate-600">Complete overview of all available yield opportunities</td>
-                      <td className="py-4 px-4 text-right font-mono text-purple-600">$0.005</td>
+                      <td className="py-4 px-4 text-right font-mono text-purple-600 font-bold">$0.005</td>
                     </tr>
                   </tbody>
                 </table>
@@ -124,61 +124,61 @@ export default function PricingPage() {
           </div>
 
           {/* FAQ Section */}
-          <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
+          <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-12 border border-slate-100">
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               Frequently Asked Questions
             </h2>
             <div className="space-y-6 max-w-3xl mx-auto">
-              <div>
-                <h3 className="text-xl font-semibold text-slate-900 mb-2">
+              <div className="p-6 bg-gradient-to-r from-purple-50 to-blue-50 rounded-2xl border border-purple-100 hover:shadow-lg transition-all duration-300">
+                <h3 className="text-xl font-bold text-slate-900 mb-3">
                   How does payment work?
                 </h3>
-                <p className="text-slate-600">
-                  When you request data, the API responds with <span className="font-mono text-sm bg-slate-100 px-2 py-1 rounded">402 Payment Required</span> and payment instructions. Send the specified USDC amount on Arc Network, then retry your request with the transaction hash in the <span className="font-mono text-sm bg-slate-100 px-2 py-1 rounded">X-Payment-Tx</span> header.
+                <p className="text-slate-600 leading-relaxed">
+                  When you request data, the API responds with <span className="font-mono text-sm bg-white px-2 py-1 rounded-lg border border-slate-200">402 Payment Required</span> and payment instructions. Send the specified USDC amount on Arc Network, then retry your request with the transaction hash in the <span className="font-mono text-sm bg-white px-2 py-1 rounded-lg border border-slate-200">X-Payment-Tx</span> header.
                 </p>
               </div>
 
-              <div>
-                <h3 className="text-xl font-semibold text-slate-900 mb-2">
+              <div className="p-6 bg-gradient-to-r from-purple-50 to-blue-50 rounded-2xl border border-purple-100 hover:shadow-lg transition-all duration-300">
+                <h3 className="text-xl font-bold text-slate-900 mb-3">
                   Why is it cheaper than traditional APIs?
                 </h3>
-                <p className="text-slate-600">
+                <p className="text-slate-600 leading-relaxed">
                   Traditional API providers charge $99-$499/month to cover infrastructure and support costs. We use blockchain for authentication and payment processing, eliminating those overhead costs. You pay only for the actual data retrieval cost plus a small margin.
                 </p>
               </div>
 
-              <div>
-                <h3 className="text-xl font-semibold text-slate-900 mb-2">
+              <div className="p-6 bg-gradient-to-r from-purple-50 to-blue-50 rounded-2xl border border-purple-100 hover:shadow-lg transition-all duration-300">
+                <h3 className="text-xl font-bold text-slate-900 mb-3">
                   What if I make a lot of requests?
                 </h3>
-                <p className="text-slate-600">
+                <p className="text-slate-600 leading-relaxed">
                   There are no volume tiers or discounts—but you also don't get price-gouged. $0.002 per query stays $0.002 whether you make 10 requests or 10,000. For high-frequency use cases, consider caching responses or batching requests to minimize costs.
                 </p>
               </div>
 
-              <div>
-                <h3 className="text-xl font-semibold text-slate-900 mb-2">
+              <div className="p-6 bg-gradient-to-r from-purple-50 to-blue-50 rounded-2xl border border-purple-100 hover:shadow-lg transition-all duration-300">
+                <h3 className="text-xl font-bold text-slate-900 mb-3">
                   How fresh is the data?
                 </h3>
-                <p className="text-slate-600">
+                <p className="text-slate-600 leading-relaxed">
                   All data comes directly from DeFiLlama's API, which updates every 15 minutes for most protocols. When you pay for data, you get the absolute latest available snapshot—no stale cached data.
                 </p>
               </div>
 
-              <div>
-                <h3 className="text-xl font-semibold text-slate-900 mb-2">
+              <div className="p-6 bg-gradient-to-r from-purple-50 to-blue-50 rounded-2xl border border-purple-100 hover:shadow-lg transition-all duration-300">
+                <h3 className="text-xl font-bold text-slate-900 mb-3">
                   What happens if my payment fails?
                 </h3>
-                <p className="text-slate-600">
+                <p className="text-slate-600 leading-relaxed">
                   If the payment transaction fails or doesn't include the correct amount, the server will reject it and return an error. Your funds aren't lost—they're simply not sent. Once you fix the issue, retry with a new payment.
                 </p>
               </div>
 
-              <div>
-                <h3 className="text-xl font-semibold text-slate-900 mb-2">
+              <div className="p-6 bg-gradient-to-r from-purple-50 to-blue-50 rounded-2xl border border-purple-100 hover:shadow-lg transition-all duration-300">
+                <h3 className="text-xl font-bold text-slate-900 mb-3">
                   Can I get a refund?
                 </h3>
-                <p className="text-slate-600">
+                <p className="text-slate-600 leading-relaxed">
                   Payments are final and non-refundable. Since data is delivered instantly and can't be "returned," we can't offer refunds. However, at $0.001-$0.005 per request, the financial risk is minimal.
                 </p>
               </div>
@@ -186,28 +186,33 @@ export default function PricingPage() {
           </div>
 
           {/* CTA */}
-          <div className="mt-16 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
-              Ready to Get Started?
-            </h2>
-            <p className="text-xl text-slate-600 mb-8 max-w-2xl mx-auto">
-              No signup required. No credit card needed. Just send USDC and get data.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
-                href="http://localhost:3000"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-8 py-4 bg-gradient-to-r from-arc-blue to-arc-purple text-white rounded-xl font-semibold text-lg hover:shadow-xl transition transform hover:scale-105"
-              >
-                Try the Demo
-              </a>
-              <Link 
-                href="/docs"
-                className="px-8 py-4 bg-white border-2 border-slate-200 text-slate-700 rounded-xl font-semibold text-lg hover:border-primary transition"
-              >
-                Read the Docs
-              </Link>
+          <div className="mt-16">
+            <div className="bg-gradient-to-br from-slate-50 to-purple-50 rounded-3xl p-12 text-center border border-slate-200 shadow-2xl">
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
+                Ready to Get Started?
+              </h2>
+              <p className="text-xl text-slate-600 mb-8 max-w-2xl mx-auto leading-relaxed">
+                No signup required. No credit card needed. Just send USDC and get data.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a
+                  href="http://localhost:3000"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group px-8 py-4 bg-gradient-to-r from-arc-blue to-arc-purple text-white rounded-2xl font-semibold text-lg hover:shadow-glow-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
+                >
+                  <span className="flex items-center justify-center gap-2">
+                    Try the Demo
+                    <span className="group-hover:translate-x-1 transition-transform">→</span>
+                  </span>
+                </a>
+                <Link
+                  href="/docs"
+                  className="px-8 py-4 bg-white border-2 border-slate-300 text-slate-700 rounded-2xl font-semibold text-lg hover:border-primary hover:shadow-lg transition-all duration-300"
+                >
+                  Read the Docs
+                </Link>
+              </div>
             </div>
           </div>
         </div>

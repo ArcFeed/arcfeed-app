@@ -4,26 +4,26 @@ export default function DocsPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-purple-50">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md border-b border-slate-200 z-50">
+      <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md border-b border-slate-200/50 z-50 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <Link href="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-purple-600 to-blue-500 rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-gradient-to-br from-purple-600 to-blue-500 rounded-xl flex items-center justify-center shadow-md">
                 <span className="text-white font-bold text-lg">⚡</span>
               </div>
               <span className="text-xl font-bold text-gradient">ArcFeed</span>
             </Link>
             <div className="hidden md:flex space-x-8">
-              <Link href="/" className="text-slate-600 hover:text-primary transition">Home</Link>
-              <Link href="/demo" className="text-slate-600 hover:text-primary transition">Demo</Link>
+              <Link href="/" className="text-slate-600 hover:text-primary transition-all duration-200 font-medium">Home</Link>
+              <Link href="/demo" className="text-slate-600 hover:text-primary transition-all duration-200 font-medium">Demo</Link>
               <Link href="/docs" className="text-primary font-semibold">Docs</Link>
-              <Link href="/pricing" className="text-slate-600 hover:text-primary transition">Pricing</Link>
+              <Link href="/pricing" className="text-slate-600 hover:text-primary transition-all duration-200 font-medium">Pricing</Link>
             </div>
-            <a 
-              href="http://localhost:3000" 
+            <a
+              href="http://localhost:3000"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 bg-gradient-to-r from-arc-blue to-arc-purple text-white rounded-lg font-medium hover:shadow-lg transition"
+              className="px-5 py-2.5 bg-gradient-to-r from-arc-blue to-arc-purple text-white rounded-xl font-medium hover:shadow-glow-md transition-all duration-300 hover:scale-105"
             >
               Launch App →
             </a>

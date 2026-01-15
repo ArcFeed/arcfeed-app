@@ -125,7 +125,7 @@ CIRCLE_API_KEY=your_circle_api_key
 CIRCLE_ENTITY_SECRET=generated_entity_secret
 
 # AI Agent
-GROQ_API_KEY=your_groq_api_key
+GROQ_API_KEY=
 
 # Security
 API_KEY_SECRET=your_random_secret
