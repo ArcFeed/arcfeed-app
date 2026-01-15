@@ -1,0 +1,22 @@
+{
+  "name": "arcfeed-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Arc Network DeFi Data Marketplace - High-frequency data for AI agents",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\" \"npm run dev:landing\"",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:landing": "cd landing && npm run dev",
+    "build": "npm run build:backend && npm run build:frontend && npm run build:landing",
+    "build:backend": "cd backend && npm run build",
+    "build:frontend": "cd frontend && npm run build",
+    "build:landing": "cd landing && npm run build"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

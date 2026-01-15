@@ -15,10 +15,34 @@ This project transforms a wallet-integrated AI assistant into a **High-Frequency
 - ⚡ **Arc Network** - Ultra-low fees and high-speed transactions
 - 📊 **Real-Time DeFi Data** - Live yields, TVL, prices from DeFiLlama
 - 🔒 **Secure Wallets** - Circle Developer-Controlled Wallets
+- 🎨 **Professional Landing Page** - Next.js marketing site with interactive demos
+
+## 📁 Monorepo Structure
+
+This project uses npm workspaces for a clean monorepo architecture:
+
+```
+arcfeed-app/
+├── packages/
+│   ├── backend/          # Express API with Arc Network integration (coming soon)
+│   ├── marketplace/      # React Vite data marketplace app (coming soon)
+│   └── landing/          # Next.js landing page ✅
+├── backend/              # Current backend location (to be moved)
+├── frontend/             # Current frontend location (to be moved)
+└── package.json          # Root workspace configuration
+```
+
+**Note:** We're transitioning to the packages/ structure. The backend and frontend folders will be moved to packages/ shortly.
 
 ## 🏗️ Architecture
 
 ### Technology Stack
+
+**Landing Page:**
+- Next.js 14.1.0
+- React 18 + TypeScript
+- Tailwind CSS + Framer Motion
+- Static export for Vercel deployment
 
 **Backend:**
 - Express + TypeScript
@@ -27,7 +51,7 @@ This project transforms a wallet-integrated AI assistant into a **High-Frequency
 - Ethers.js for Arc Network integration
 - DeFiLlama API for real-time data
 
-**Frontend:**
+**Marketplace Frontend:**
 - React + TypeScript
 - Vite build system
 - Real-time chat interface
@@ -48,6 +72,20 @@ Endpoints are protected by the `requirePayment()` middleware:
 6. Data is returned if payment is valid
 
 ## 🚀 Quick Start
+
+### Landing Page (Available Now)
+
+```bash
+# Install dependencies
+cd packages/landing
+npm install
+
+# Run development server
+npm run dev
+# Visit http://localhost:3002
+```
+
+### Full Monorepo (Coming Soon)
 
 ### Prerequisites
 
