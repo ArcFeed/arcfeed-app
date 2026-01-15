@@ -20,19 +20,32 @@ async function apiRequest<T>(
   endpoint: string,
   options: RequestInit = {}
 ): Promise<T> {
-  const headers: HeadersInit = {
+  const headersInit: Record<string, string> = {
     'Content-Type': 'application/json',
-    ...options.headers,
   };
+
+  // Merge any provided headers (handles Headers, array, or plain object)
+  if (options.headers) {
+    const h = options.headers as any;
+    if (h instanceof Headers) {
+      h.forEach((value: string, key: string) => {
+        headersInit[key] = value;
+      });
+    } else if (Array.isArray(h)) {
+      h.forEach(([k, v]: [string, string]) => (headersInit[k] = v));
+    } else {
+      Object.assign(headersInit, h);
+    }
+  }
 
   // Add API key if available
   if (API_KEY) {
-    headers['X-API-Key'] = API_KEY;
+    headersInit['X-API-Key'] = API_KEY;
   }
 
   const response = await fetch(`${API_BASE_URL}${endpoint}`, {
     ...options,
-    headers,
+    headers: headersInit,
   });
 
   if (!response.ok) {

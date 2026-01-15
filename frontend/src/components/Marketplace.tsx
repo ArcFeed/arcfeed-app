@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { marketplaceApi } from '../services/api';
 
 interface DataProduct {
   id: string;

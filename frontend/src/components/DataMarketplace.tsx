@@ -46,7 +46,8 @@ export function DataMarketplace({ walletId }: DataMarketplaceProps) {
 
   useEffect(() => {
     loadProducts();
-  }, []);
+    // include walletId so the prop is considered used by TS if parent passes it
+  }, [walletId]);
 
   const loadProducts = async () => {
     try {
