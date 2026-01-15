@@ -40,12 +40,49 @@ function App() {
         <header
           className="app-header"
           style={{
-            padding: '1rem 1.5rem',
-            background: 'white',
-            borderBottom: '1px solid rgba(0,0,0,0.08)',
+            padding: '1rem 2rem',
+            background: 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)',
+            borderBottom: '1px solid var(--accent-dark)',
             zIndex: 100,
+            boxShadow: '0 2px 8px rgba(0, 0, 0, 0.04)',
           }}
         >
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+              <h1 style={{
+                fontSize: '1.25rem',
+                fontWeight: 700,
+                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                margin: 0
+              }}>
+                ArcFeed
+              </h1>
+              <span style={{
+                fontSize: '0.75rem',
+                color: 'var(--secondary)',
+                opacity: 0.7,
+                fontWeight: 500
+              }}>
+                {currentView === 'chat' ? 'AI Assistant' :
+                 currentView === 'marketplace' ? 'Data Marketplace' :
+                 currentView === 'wallets' ? 'Wallet Management' : 'Dashboard'}
+              </span>
+            </div>
+            <div style={{
+              padding: '0.5rem 1rem',
+              background: 'rgba(102, 126, 234, 0.08)',
+              borderRadius: '12px',
+              fontSize: '0.75rem',
+              color: 'var(--primary)',
+              fontWeight: 600,
+              border: '1px solid rgba(102, 126, 234, 0.15)'
+            }}>
+              ⚡ Arc Network
+            </div>
+          </div>
         </header>
 
         {/* Main Content */}

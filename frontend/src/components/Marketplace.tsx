@@ -18,7 +18,7 @@ interface MarketplaceProps {
 }
 
 export function Marketplace({ walletId }: MarketplaceProps) {
-  const [ebooks, setEbooks] = useState<EBook[]>([]);
+  const [products, setProducts] = useState<DataProduct[]>([]);
   const [purchasedIds, setPurchasedIds] = useState<Set<string>>(new Set());
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -28,60 +28,86 @@ export function Marketplace({ walletId }: MarketplaceProps) {
   const activeWalletId = walletId || import.meta.env.VITE_PRIMARY_WALLET_ID;
 
   useEffect(() => {
-    loadEbooks();
+    loadProducts();
     if (activeWalletId) {
-      loadPurchasedEbooks();
+      loadPurchasedProducts();
     }
   }, [activeWalletId]);
 
-  const loadEbooks = async () => {
+  const loadProducts = async () => {
     try {
       setLoading(true);
       setError(null);
-      const data = await marketplaceApi.getAllEbooks();
-      setEbooks(data || []);
+      const response = await fetch('/api/data/catalog', {
+        headers: {
+          'X-API-Key': import.meta.env.VITE_API_KEY || '',
+        },
+      });
+      const result = await response.json();
+      if (result.success) {
+        setProducts(result.data || []);
+      } else {
+        throw new Error(result.error || 'Failed to load data products');
+      }
     } catch (err: any) {
-      setError(err.message || 'Failed to load e-books');
+      setError(err.message || 'Failed to load data products');
     } finally {
       setLoading(false);
     }
   };
 
-  const loadPurchasedEbooks = async () => {
+  const loadPurchasedProducts = async () => {
     if (!activeWalletId) return;
-    
+
     try {
-      const purchased = await marketplaceApi.getPurchasedEbooks(activeWalletId);
-      setPurchasedIds(new Set(purchased.map((ebook: EBook) => ebook.id)));
+      // Note: This endpoint may need to be updated on the backend
+      const response = await fetch(`/api/data/purchased/${activeWalletId}`, {
+        headers: {
+          'X-API-Key': import.meta.env.VITE_API_KEY || '',
+        },
+      });
+      const result = await response.json();
+      if (result.success) {
+        setPurchasedIds(new Set(result.data.map((product: DataProduct) => product.id)));
+      }
     } catch (err: any) {
-      console.error('Failed to load purchased e-books:', err);
+      console.error('Failed to load purchased data products:', err);
     }
   };
 
   const handleSearch = async () => {
     if (!searchQuery.trim()) {
-      loadEbooks();
+      loadProducts();
       return;
     }
 
     try {
       setLoading(true);
       setError(null);
-      const data = await marketplaceApi.searchEbooks(searchQuery);
-      setEbooks(data || []);
+      const response = await fetch(`/api/data/search?q=${encodeURIComponent(searchQuery)}`, {
+        headers: {
+          'X-API-Key': import.meta.env.VITE_API_KEY || '',
+        },
+      });
+      const result = await response.json();
+      if (result.success) {
+        setProducts(result.data || []);
+      } else {
+        throw new Error(result.error || 'Failed to search data products');
+      }
     } catch (err: any) {
-      setError(err.message || 'Failed to search e-books');
+      setError(err.message || 'Failed to search data products');
     } finally {
       setLoading(false);
     }
   };
 
-  const filteredEbooks = ebooks;
+  const filteredProducts = products;
 
   if (loading) {
     return (
       <div className="card" style={{ textAlign: 'center', padding: '3rem' }}>
-        <p>Loading e-books...</p>
+        <p>Loading data products...</p>
       </div>
     );
   }
@@ -90,7 +116,7 @@ export function Marketplace({ walletId }: MarketplaceProps) {
     return (
       <div className="card">
         <p style={{ color: 'var(--secondary)', opacity: 0.8 }}>Error: {error}</p>
-        <button onClick={loadEbooks} style={{ marginTop: '1rem' }}>
+        <button onClick={loadProducts} style={{ marginTop: '1rem' }}>
           Retry
         </button>
       </div>
@@ -102,18 +128,18 @@ export function Marketplace({ walletId }: MarketplaceProps) {
       <div className="card">
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
           <div>
-            <h2 style={{ marginBottom: '0.5rem' }}>E-Book Marketplace</h2>
+            <h2 style={{ marginBottom: '0.5rem' }}>DeFi Data Products</h2>
             <p style={{ color: 'var(--secondary)', opacity: 0.7, fontSize: '0.875rem', margin: 0 }}>
-              Browse {ebooks.length} available e-books
+              Browse {products.length} available data feeds
             </p>
           </div>
-          <button 
+          <button
             onClick={() => {
-              loadEbooks();
+              loadProducts();
               if (activeWalletId) {
-                loadPurchasedEbooks();
+                loadPurchasedProducts();
               }
-            }} 
+            }}
             style={{ width: 'auto', padding: '0.5rem 1rem', fontSize: '0.875rem' }}
           >
             Refresh
@@ -127,7 +153,7 @@ export function Marketplace({ walletId }: MarketplaceProps) {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
-            placeholder="Search by title, author, or category..."
+            placeholder="Search by name, protocol, or category..."
             style={{
               flex: 1,
               padding: '0.75rem 1rem',
@@ -154,7 +180,7 @@ export function Marketplace({ walletId }: MarketplaceProps) {
             <button
               onClick={() => {
                 setSearchQuery('');
-                loadEbooks();
+                loadProducts();
               }}
               style={{
                 width: 'auto',
@@ -170,10 +196,10 @@ export function Marketplace({ walletId }: MarketplaceProps) {
           )}
         </div>
 
-        {/* E-Books Grid */}
-        {filteredEbooks.length === 0 ? (
+        {/* Data Products Grid */}
+        {filteredProducts.length === 0 ? (
           <div style={{ textAlign: 'center', padding: '3rem', color: 'var(--secondary)', opacity: 0.7 }}>
-            <p>No e-books found. Try a different search term.</p>
+            <p>No data products found. Try a different search term.</p>
           </div>
         ) : (
           <div
@@ -183,55 +209,60 @@ export function Marketplace({ walletId }: MarketplaceProps) {
               gap: '1.5rem',
             }}
           >
-            {filteredEbooks.map((ebook) => (
+            {filteredProducts.map((product) => (
               <div
-                key={ebook.id}
+                key={product.id}
                 style={{
-                  border: '1px solid rgba(0,0,0,0.1)',
-                  borderRadius: '8px',
+                  border: '1px solid var(--accent-dark)',
+                  borderRadius: 'var(--border-radius-lg)',
                   padding: '1.5rem',
                   backgroundColor: 'white',
-                  transition: 'all 0.2s ease',
+                  transition: 'all 0.3s ease',
                   cursor: 'pointer',
+                  boxShadow: 'var(--shadow-md)',
                 }}
                 onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-4px)';
+                  e.currentTarget.style.boxShadow = '0 12px 32px rgba(0, 0, 0, 0.15)';
                   e.currentTarget.style.borderColor = 'var(--primary)';
-                  e.currentTarget.style.boxShadow = '0 2px 8px rgba(99, 102, 241, 0.1)';
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = 'rgba(0,0,0,0.1)';
-                  e.currentTarget.style.boxShadow = 'none';
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = 'var(--shadow-md)';
+                  e.currentTarget.style.borderColor = 'var(--accent-dark)';
                 }}
               >
                 <div style={{ marginBottom: '0.75rem', display: 'flex', gap: '0.5rem', flexWrap: 'wrap', alignItems: 'center' }}>
-                  {purchasedIds.has(ebook.id) && (
+                  {purchasedIds.has(product.id) && (
                     <span
                       style={{
                         display: 'inline-block',
-                        padding: '0.25rem 0.5rem',
-                        borderRadius: '4px',
+                        padding: '0.25rem 0.75rem',
+                        borderRadius: '12px',
                         backgroundColor: 'var(--primary)',
                         color: 'white',
                         fontSize: '0.75rem',
-                        fontWeight: 500,
+                        fontWeight: 600,
+                        boxShadow: '0 2px 8px rgba(99, 102, 241, 0.25)',
                       }}
                     >
                       ✓ Purchased
                     </span>
                   )}
-                  {ebook.category && (
+                  {product.category && (
                     <span
                       style={{
                         display: 'inline-block',
-                        padding: '0.25rem 0.5rem',
-                        borderRadius: '4px',
+                        padding: '0.25rem 0.75rem',
+                        borderRadius: '12px',
                         backgroundColor: 'var(--accent)',
                         color: 'var(--secondary)',
                         fontSize: '0.75rem',
-                        fontWeight: 500,
+                        fontWeight: 600,
+                        border: '1px solid var(--accent-dark)',
                       }}
                     >
-                      {ebook.category}
+                      {product.category}
                     </span>
                   )}
                 </div>
@@ -244,18 +275,21 @@ export function Marketplace({ walletId }: MarketplaceProps) {
                     marginTop: 0,
                   }}
                 >
-                  {ebook.title}
+                  {product.name}
                 </h3>
-                <p
-                  style={{
-                    fontSize: '0.875rem',
-                    color: 'var(--secondary)',
-                    opacity: 0.7,
-                    marginBottom: '0.75rem',
-                  }}
-                >
-                  by {ebook.author}
-                </p>
+                {product.protocol && (
+                  <p
+                    style={{
+                      fontSize: '0.875rem',
+                      color: 'var(--primary)',
+                      opacity: 0.9,
+                      marginBottom: '0.5rem',
+                      fontWeight: 500,
+                    }}
+                  >
+                    Protocol: {product.protocol}
+                  </p>
+                )}
                 <p
                   style={{
                     fontSize: '0.875rem',
@@ -265,7 +299,7 @@ export function Marketplace({ walletId }: MarketplaceProps) {
                     lineHeight: '1.5',
                   }}
                 >
-                  {ebook.description}
+                  {product.description}
                 </p>
                 <div
                   style={{
@@ -284,7 +318,7 @@ export function Marketplace({ walletId }: MarketplaceProps) {
                         color: 'var(--primary)',
                       }}
                     >
-                      {ebook.price} USDC
+                      {product.price} USDC
                     </div>
                     <div
                       style={{
@@ -293,7 +327,7 @@ export function Marketplace({ walletId }: MarketplaceProps) {
                         opacity: 0.6,
                       }}
                     >
-                      ID: {ebook.id}
+                      Updates: {product.updateFrequency}
                     </div>
                   </div>
                 </div>

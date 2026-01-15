@@ -1,8 +1,22 @@
-/* Color Palette - 3 Main Colors */
+/* Color Palette - Modern DeFi Theme */
 :root {
-  --primary: #6366f1;      /* Indigo - Primary actions, active states */
-  --secondary: #64748b;    /* Slate - Secondary elements, text */
-  --accent: #f1f5f9;       /* Light gray - Backgrounds, cards */
+  --primary: #6366f1;           /* Indigo - Primary actions, active states */
+  --primary-dark: #4f46e5;      /* Darker indigo for hovers */
+  --primary-light: #818cf8;     /* Light indigo for backgrounds */
+  --secondary: #64748b;         /* Slate - Secondary elements, text */
+  --secondary-dark: #475569;    /* Darker slate for emphasis */
+  --accent: #f1f5f9;            /* Light gray - Backgrounds, cards */
+  --accent-dark: #e2e8f0;       /* Slightly darker for borders */
+  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-accent: linear-gradient(135deg, #667eea 0%, #4f46e5 100%);
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-primary: 0 4px 12px rgba(99, 102, 241, 0.15);
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 16px;
+  --border-radius-xl: 24px;
 }
 
 * {
@@ -43,10 +57,16 @@ body {
 
 .card {
   background: white;
-  border-radius: 8px;
+  border-radius: var(--border-radius-lg);
   padding: 2rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--accent-dark);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
 }
 
 .card h2 {
@@ -68,22 +88,24 @@ button {
   color: white;
   border: none;
   padding: 0.75rem 1.5rem;
-  border-radius: 6px;
+  border-radius: var(--border-radius-md);
   font-size: 0.875rem;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
   width: 100%;
+  box-shadow: var(--shadow-sm);
 }
 
 button:hover:not(:disabled) {
-  background: #4f46e5;
-  transform: translateY(-1px);
-  box-shadow: 0 2px 4px rgba(99, 102, 241, 0.2);
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-primary);
 }
 
 button:active:not(:disabled) {
   transform: translateY(0);
+  box-shadow: var(--shadow-sm);
 }
 
 button:disabled {
@@ -94,7 +116,8 @@ button:disabled {
 /* Sidebar Styles */
 .sidebar {
   overflow-y: auto;
-  background: #1e293b;
+  background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+  box-shadow: 2px 0 16px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar::-webkit-scrollbar {
@@ -115,12 +138,39 @@ button:disabled {
 }
 
 .nav-button:hover {
-  background: rgba(99, 102, 241, 0.2) !important;
+  background: rgba(99, 102, 241, 0.15) !important;
+  transform: translateX(4px);
 }
 
 .nav-active {
-  background: var(--primary) !important;
+  background: var(--gradient-accent) !important;
   color: white !important;
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.25);
+}
+
+/* Input Styles */
+input[type="text"],
+input[type="number"],
+textarea {
+  border-radius: var(--border-radius-md);
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* Chat Animation */
@@ -131,4 +181,34 @@ button:disabled {
   30% {
     opacity: 1;
   }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.4s ease-out;
+}
+
+.slide-in {
+  animation: slideIn 0.3s ease-out;
 }

@@ -48,16 +48,17 @@ export function Sidebar({ isOpen, onNavigate, currentView, selectedWalletId }: S
               className={`nav-button ${currentView === 'chat' ? 'nav-active' : ''}`}
               style={{
                 padding: '0.75rem 1rem',
-                background: currentView === 'chat' ? 'var(--primary)' : 'transparent',
+                background: currentView === 'chat' ? 'linear-gradient(135deg, #667eea 0%, #4f46e5 100%)' : 'transparent',
                 border: 'none',
-                borderRadius: '8px',
+                borderRadius: '12px',
                 color: currentView === 'chat' ? 'white' : 'rgba(255,255,255,0.8)',
                 textAlign: 'left',
                 cursor: 'pointer',
-                transition: 'all 0.2s ease',
+                transition: 'all 0.3s ease',
                 fontSize: '0.875rem',
-                fontWeight: currentView === 'chat' ? 500 : 400,
+                fontWeight: currentView === 'chat' ? 600 : 400,
                 width: '100%',
+                boxShadow: currentView === 'chat' ? '0 4px 12px rgba(99, 102, 241, 0.3)' : 'none',
               }}
             >
               Chat
@@ -68,16 +69,17 @@ export function Sidebar({ isOpen, onNavigate, currentView, selectedWalletId }: S
               className={`nav-button ${currentView === 'marketplace' ? 'nav-active' : ''}`}
               style={{
                 padding: '0.75rem 1rem',
-                background: currentView === 'marketplace' ? 'var(--primary)' : 'transparent',
+                background: currentView === 'marketplace' ? 'linear-gradient(135deg, #667eea 0%, #4f46e5 100%)' : 'transparent',
                 border: 'none',
-                borderRadius: '8px',
+                borderRadius: '12px',
                 color: currentView === 'marketplace' ? 'white' : 'rgba(255,255,255,0.8)',
                 textAlign: 'left',
                 cursor: 'pointer',
-                transition: 'all 0.2s ease',
+                transition: 'all 0.3s ease',
                 fontSize: '0.875rem',
-                fontWeight: currentView === 'marketplace' ? 500 : 400,
+                fontWeight: currentView === 'marketplace' ? 600 : 400,
                 width: '100%',
+                boxShadow: currentView === 'marketplace' ? '0 4px 12px rgba(99, 102, 241, 0.3)' : 'none',
               }}
             >
               📊 Data Products
@@ -88,16 +90,17 @@ export function Sidebar({ isOpen, onNavigate, currentView, selectedWalletId }: S
               className={`nav-button ${currentView === 'wallets' ? 'nav-active' : ''}`}
               style={{
                 padding: '0.75rem 1rem',
-                background: currentView === 'wallets' ? 'var(--primary)' : 'transparent',
+                background: currentView === 'wallets' ? 'linear-gradient(135deg, #667eea 0%, #4f46e5 100%)' : 'transparent',
                 border: 'none',
-                borderRadius: '8px',
+                borderRadius: '12px',
                 color: currentView === 'wallets' ? 'white' : 'rgba(255,255,255,0.8)',
                 textAlign: 'left',
                 cursor: 'pointer',
-                transition: 'all 0.2s ease',
+                transition: 'all 0.3s ease',
                 fontSize: '0.875rem',
-                fontWeight: currentView === 'wallets' ? 500 : 400,
+                fontWeight: currentView === 'wallets' ? 600 : 400,
                 width: '100%',
+                boxShadow: currentView === 'wallets' ? '0 4px 12px rgba(99, 102, 241, 0.3)' : 'none',
               }}
             >
               Wallets
@@ -115,16 +118,17 @@ export function Sidebar({ isOpen, onNavigate, currentView, selectedWalletId }: S
                     className={`nav-button ${currentView === 'balance' ? 'nav-active' : ''}`}
                     style={{
                       padding: '0.75rem 1rem',
-                      background: currentView === 'balance' ? 'var(--primary)' : 'transparent',
+                      background: currentView === 'balance' ? 'linear-gradient(135deg, #667eea 0%, #4f46e5 100%)' : 'transparent',
                       border: 'none',
-                      borderRadius: '8px',
+                      borderRadius: '12px',
                       color: currentView === 'balance' ? 'white' : 'rgba(255,255,255,0.8)',
                       textAlign: 'left',
                       cursor: 'pointer',
-                      transition: 'all 0.2s ease',
+                      transition: 'all 0.3s ease',
                       fontSize: '0.875rem',
-                      fontWeight: currentView === 'balance' ? 500 : 400,
+                      fontWeight: currentView === 'balance' ? 600 : 400,
                       width: '100%',
+                      boxShadow: currentView === 'balance' ? '0 4px 12px rgba(99, 102, 241, 0.3)' : 'none',
                     }}
                   >
                     Balance
@@ -135,16 +139,17 @@ export function Sidebar({ isOpen, onNavigate, currentView, selectedWalletId }: S
                     className={`nav-button ${currentView === 'transactions' ? 'nav-active' : ''}`}
                     style={{
                       padding: '0.75rem 1rem',
-                      background: currentView === 'transactions' ? 'var(--primary)' : 'transparent',
+                      background: currentView === 'transactions' ? 'linear-gradient(135deg, #667eea 0%, #4f46e5 100%)' : 'transparent',
                       border: 'none',
-                      borderRadius: '8px',
+                      borderRadius: '12px',
                       color: currentView === 'transactions' ? 'white' : 'rgba(255,255,255,0.8)',
                       textAlign: 'left',
                       cursor: 'pointer',
-                      transition: 'all 0.2s ease',
+                      transition: 'all 0.3s ease',
                       fontSize: '0.875rem',
-                      fontWeight: currentView === 'transactions' ? 500 : 400,
+                      fontWeight: currentView === 'transactions' ? 600 : 400,
                       width: '100%',
+                      boxShadow: currentView === 'transactions' ? '0 4px 12px rgba(99, 102, 241, 0.3)' : 'none',
                     }}
                   >
                     Transactions
@@ -155,16 +160,17 @@ export function Sidebar({ isOpen, onNavigate, currentView, selectedWalletId }: S
                     className={`nav-button ${currentView === 'transfer' ? 'nav-active' : ''}`}
                     style={{
                       padding: '0.75rem 1rem',
-                      background: currentView === 'transfer' ? 'var(--primary)' : 'transparent',
+                      background: currentView === 'transfer' ? 'linear-gradient(135deg, #667eea 0%, #4f46e5 100%)' : 'transparent',
                       border: 'none',
-                      borderRadius: '8px',
+                      borderRadius: '12px',
                       color: currentView === 'transfer' ? 'white' : 'rgba(255,255,255,0.8)',
                       textAlign: 'left',
                       cursor: 'pointer',
-                      transition: 'all 0.2s ease',
+                      transition: 'all 0.3s ease',
                       fontSize: '0.875rem',
-                      fontWeight: currentView === 'transfer' ? 500 : 400,
+                      fontWeight: currentView === 'transfer' ? 600 : 400,
                       width: '100%',
+                      boxShadow: currentView === 'transfer' ? '0 4px 12px rgba(99, 102, 241, 0.3)' : 'none',
                     }}
                   >
                     Transfer
@@ -175,9 +181,17 @@ export function Sidebar({ isOpen, onNavigate, currentView, selectedWalletId }: S
           </nav>
 
           {selectedWalletId && (
-            <div style={{ marginTop: '2rem', padding: '1rem', backgroundColor: 'rgba(255,255,255,0.08)', borderRadius: '6px', fontSize: '0.75rem' }}>
-              <div style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '0.5rem', fontWeight: 500 }}>Selected Wallet</div>
-              <div style={{ wordBreak: 'break-all', fontSize: '0.7rem', color: 'rgba(255,255,255,0.9)' }}>{selectedWalletId.substring(0, 24)}...</div>
+            <div style={{
+              marginTop: '2rem',
+              padding: '1rem',
+              background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%)',
+              borderRadius: '12px',
+              fontSize: '0.75rem',
+              border: '1px solid rgba(99, 102, 241, 0.2)',
+              boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)'
+            }}>
+              <div style={{ color: 'rgba(255,255,255,0.8)', marginBottom: '0.5rem', fontWeight: 600, fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Selected Wallet</div>
+              <div style={{ wordBreak: 'break-all', fontSize: '0.7rem', color: 'rgba(255,255,255,0.95)', fontFamily: 'monospace' }}>{selectedWalletId.substring(0, 24)}...</div>
             </div>
           )}
         </div>

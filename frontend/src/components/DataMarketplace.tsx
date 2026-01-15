@@ -98,7 +98,13 @@ export function DataMarketplace({ walletId }: DataMarketplaceProps) {
   return (
     <div style={{ maxWidth: '1200px', margin: '0 auto', width: '100%' }}>
       {/* Header */}
-      <div className="card" style={{ marginBottom: '1.5rem', background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', color: 'white' }}>
+      <div className="card" style={{
+        marginBottom: '1.5rem',
+        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+        color: 'white',
+        border: 'none',
+        boxShadow: '0 8px 24px rgba(102, 126, 234, 0.25)'
+      }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div>
             <h2 style={{ marginBottom: '0.5rem', color: 'white' }}>📊 DeFi Data Marketplace</h2>
@@ -149,9 +155,26 @@ export function DataMarketplace({ walletId }: DataMarketplaceProps) {
       </div>
 
       {/* Products Grid */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))', gap: '1rem' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))', gap: '1.5rem' }}>
         {filteredProducts.map((product) => (
-          <div key={product.id} className="card" style={{ position: 'relative', overflow: 'hidden' }}>
+          <div
+            key={product.id}
+            className="card"
+            style={{
+              position: 'relative',
+              overflow: 'hidden',
+              transition: 'all 0.3s ease',
+              cursor: 'pointer'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'translateY(-4px)';
+              e.currentTarget.style.boxShadow = '0 12px 32px rgba(0, 0, 0, 0.15)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = 'var(--shadow-md)';
+            }}
+          >
             {/* Category Badge */}
             <div style={{
               position: 'absolute',
@@ -160,9 +183,10 @@ export function DataMarketplace({ walletId }: DataMarketplaceProps) {
               background: categoryColors[product.category],
               color: 'white',
               padding: '0.25rem 0.75rem',
-              borderRadius: '12px',
+              borderRadius: '16px',
               fontSize: '0.75rem',
               fontWeight: '600',
+              boxShadow: '0 2px 8px rgba(0, 0, 0, 0.15)',
             }}>
               {categoryEmojis[product.category]} {product.category}
             </div>
@@ -182,10 +206,11 @@ export function DataMarketplace({ walletId }: DataMarketplaceProps) {
 
             {/* Pricing */}
             <div style={{
-              background: 'rgba(102, 126, 234, 0.1)',
+              background: 'linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%)',
               padding: '1rem',
-              borderRadius: '8px',
+              borderRadius: '12px',
               marginBottom: '1rem',
+              border: '1px solid rgba(102, 126, 234, 0.15)',
             }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <div>
@@ -216,7 +241,8 @@ export function DataMarketplace({ walletId }: DataMarketplaceProps) {
                       fontSize: '0.75rem',
                       padding: '0.25rem 0.5rem',
                       background: 'rgba(0,0,0,0.05)',
-                      borderRadius: '4px',
+                      borderRadius: '8px',
+                      border: '1px solid rgba(0,0,0,0.08)',
                     }}
                   >
                     {field}
@@ -280,6 +306,8 @@ export function DataMarketplace({ walletId }: DataMarketplaceProps) {
         background: 'linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%)',
         color: 'white',
         textAlign: 'center',
+        border: 'none',
+        boxShadow: '0 8px 24px rgba(30, 58, 138, 0.25)',
       }}>
         <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>⚡</div>
         <h3 style={{ marginBottom: '0.5rem', color: 'white' }}>Powered by Arc Network</h3>

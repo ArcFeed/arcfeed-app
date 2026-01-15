@@ -13,7 +13,7 @@ export function ChatInterface() {
     {
       id: '1',
       role: 'agent',
-      content: 'Hello! I\'m your smart wallet assistant. I can help you purchase e-books, check your balance, and manage your wallet. How can I help you today?',
+      content: 'Hello! I\'m your ArcFeed assistant. I can help you access DeFi data feeds through micropayments on Arc Network. Ask me about yield data, token prices, TVL metrics, or any DeFi analytics. How can I help you today?',
       timestamp: new Date(),
     },
   ]);
@@ -115,7 +115,7 @@ export function ChatInterface() {
                   margin: 0,
                 }}
               >
-                Wallet Integrated AI
+                ArcFeed Data Marketplace
               </h1>
               <p
                 style={{
@@ -125,7 +125,7 @@ export function ChatInterface() {
                   marginTop: '0.5rem',
                 }}
               >
-                Chat with your smart wallet
+                Access DeFi data with Arc Network micropayments
               </p>
             </div>
           )}
@@ -160,18 +160,19 @@ export function ChatInterface() {
                 </div>
               )}
               <div
+                className="fade-in"
                 style={{
                   maxWidth: '85%',
                   padding: message.role === 'user' ? '0.75rem 1rem' : '1rem 1.25rem',
-                  borderRadius: message.role === 'user' ? '18px 18px 4px 18px' : '18px 18px 18px 4px',
+                  borderRadius: message.role === 'user' ? '20px 20px 4px 20px' : '20px 20px 20px 4px',
                   backgroundColor: message.role === 'user' ? 'var(--primary)' : '#f8f9fa',
                   color: message.role === 'user' ? 'white' : 'var(--secondary)',
                   wordWrap: 'break-word',
                   fontSize: '0.9375rem',
                   lineHeight: '1.5',
-                  boxShadow: message.role === 'user' 
-                    ? '0 1px 2px rgba(99, 102, 241, 0.2)' 
-                    : '0 1px 2px rgba(0, 0, 0, 0.05)',
+                  boxShadow: message.role === 'user'
+                    ? '0 2px 8px rgba(99, 102, 241, 0.25)'
+                    : '0 2px 8px rgba(0, 0, 0, 0.06)',
                 }}
               >
                 <div style={{ whiteSpace: 'pre-wrap' }}>{message.content}</div>
@@ -261,17 +262,26 @@ export function ChatInterface() {
                 display: 'flex',
                 alignItems: 'center',
                 background: '#f8f9fa',
-                borderRadius: '24px',
-                border: '1px solid rgba(0,0,0,0.08)',
+                borderRadius: '28px',
+                border: '2px solid transparent',
                 padding: '0.75rem 1.25rem',
                 transition: 'all 0.2s ease',
+                boxShadow: '0 2px 8px rgba(0, 0, 0, 0.04)',
+              }}
+              onFocus={(e) => {
+                e.currentTarget.style.borderColor = 'var(--primary)';
+                e.currentTarget.style.boxShadow = '0 2px 12px rgba(99, 102, 241, 0.15)';
+              }}
+              onBlur={(e) => {
+                e.currentTarget.style.borderColor = 'transparent';
+                e.currentTarget.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.04)';
               }}
             >
               <input
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="Message Wallet Integrated AI..."
+                placeholder="Ask about DeFi data feeds..."
                 style={{
                   flex: 1,
                   border: 'none',
@@ -333,7 +343,7 @@ export function ChatInterface() {
               marginBottom: 0,
             }}
           >
-            Wallet Integrated AI can make mistakes. Check important info.
+            ArcFeed AI can make mistakes. Verify important transaction details.
           </p>
         </div>
       </div>
