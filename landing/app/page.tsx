@@ -22,7 +22,7 @@ export default function Home() {
               <a href="https://github.com/ArcFeed/arcfeed-app" target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-primary transition-all duration-200 font-medium">GitHub</a>
             </div>
             <a
-              href="http://localhost:3000"
+              href="https://arcfeed-app-di19.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
               className="px-5 py-2.5 bg-gradient-to-r from-arc-blue to-arc-purple text-white rounded-xl font-medium hover:shadow-glow-md transition-all duration-300 hover:scale-105"
@@ -32,14 +32,22 @@ export default function Home() {
           </div>
         </div>
       </nav>
-
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-purple-50/50 via-transparent to-blue-50/50 pointer-events-none"></div>
         <div className="max-w-7xl mx-auto text-center relative z-10">
-          <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-purple-100 to-blue-100 text-purple-700 px-5 py-2.5 rounded-full mb-8 animate-float shadow-lg border border-purple-200/50">
-            <span className="w-2 h-2 bg-purple-500 rounded-full animate-glow shadow-glow-sm"></span>
-            <span className="text-sm font-semibold">Built on Arc Network</span>
+          <div className="inline-flex items-center gap-4 mb-6">
+            <a
+              href="https://arcfeed-app-di19.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group px-8 py-4 bg-gradient-to-r from-arc-blue to-arc-purple text-white rounded-2xl font-semibold text-lg hover:shadow-glow-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
+            >
+              <span className="flex items-center justify-center gap-2">
+                Try Live Demo
+                <span className="group-hover:translate-x-1 transition-transform">→</span>
+              </span>
+            </a>
           </div>
 
           <h1 className="text-5xl md:text-7xl font-bold text-slate-900 mb-6 leading-tight">
@@ -56,7 +64,7 @@ export default function Home() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
             <a
-              href="http://localhost:3000"
+              href="https://arcfeed-app-di19.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
               className="group px-8 py-4 bg-gradient-to-r from-arc-blue to-arc-purple text-white rounded-2xl font-semibold text-lg hover:shadow-glow-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
@@ -275,7 +283,7 @@ X-Payment-Tx: 0xabc123...
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="http://localhost:3000"
+                href="https://arcfeed-app-di19.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group px-8 py-4 bg-gradient-to-r from-arc-blue to-arc-purple text-white rounded-2xl font-semibold text-lg hover:shadow-glow-lg transition-all duration-300 transform hover:scale-105 shadow-lg"

@@ -275,14 +275,14 @@ Before proceeding, ensure:
 Once all three apps run successfully:
 
 1. **Test Full Flow:**
-   - Open marketplace at localhost:3000
+  - Open marketplace at https://arcfeed-app.vercel.app/
    - Create wallets
    - Purchase data via AI agent
    - Verify payments on Arc Network
 
 2. **Test Landing Page:**
-   - Open landing at localhost:3002
-   - Click "Launch App" → Should open marketplace
+  - Open landing at https://arcfeed-app.vercel.app/
+  - Click "Launch App" → Should open marketplace
    - Check all internal navigation
    - Test terminal animation
 

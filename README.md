@@ -170,7 +170,7 @@ cd frontend
 npm run dev
 ```
 
-Visit: `http://localhost:3000`
+Visit: `https://arcfeed-app.vercel.app/`
 
 ## 📊 Available Data Products
 

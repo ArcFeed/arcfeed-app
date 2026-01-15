@@ -21,7 +21,7 @@ export default function PricingPage() {
               <Link href="/pricing" className="text-primary font-semibold">Pricing</Link>
             </div>
             <a
-              href="http://localhost:3000"
+              href="https://arcfeed-app-di19.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
               className="px-5 py-2.5 bg-gradient-to-r from-arc-blue to-arc-purple text-white rounded-xl font-medium hover:shadow-glow-md transition-all duration-300 hover:scale-105"
@@ -196,7 +196,7 @@ export default function PricingPage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
-                  href="http://localhost:3000"
+                  href="https://arcfeed-app-di19.vercel.app/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group px-8 py-4 bg-gradient-to-r from-arc-blue to-arc-purple text-white rounded-2xl font-semibold text-lg hover:shadow-glow-lg transition-all duration-300 transform hover:scale-105 shadow-lg"

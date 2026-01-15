@@ -20,7 +20,7 @@ export default function DocsPage() {
               <Link href="/pricing" className="text-slate-600 hover:text-primary transition-all duration-200 font-medium">Pricing</Link>
             </div>
             <a
-              href="http://localhost:3000"
+              href="https://arcfeed-app-di19.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
               className="px-5 py-2.5 bg-gradient-to-r from-arc-blue to-arc-purple text-white rounded-xl font-medium hover:shadow-glow-md transition-all duration-300 hover:scale-105"

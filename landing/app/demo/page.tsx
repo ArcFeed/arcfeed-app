@@ -21,7 +21,7 @@ export default function DemoPage() {
               <Link href="/pricing" className="text-slate-600 hover:text-primary transition-all duration-200 font-medium">Pricing</Link>
             </div>
             <a
-              href="http://localhost:3000"
+              href="https://arcfeed-app-di19.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
               className="px-5 py-2.5 bg-gradient-to-r from-arc-blue to-arc-purple text-white rounded-xl font-medium hover:shadow-glow-md transition-all duration-300 hover:scale-105"
@@ -176,7 +176,7 @@ HTTP/1.1 200 OK
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
-                  href="http://localhost:3000"
+                  href="https://arcfeed-app-di19.vercel.app/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group px-8 py-4 bg-white text-purple-600 rounded-2xl font-semibold text-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
