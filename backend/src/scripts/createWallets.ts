@@ -58,7 +58,8 @@ async function main() {
         console.log(`  ID: ${wallet.id}`);
         console.log(`  Address: ${wallet.address}`);
         console.log(`  Blockchain: ${wallet.blockchain}`);
-        console.log(`  Account Type: ${wallet.accountType}`);
+        // `accountType` may not be present on the SDK Wallet type; use a safe access
+        console.log(`  Account Type: ${(wallet as any).accountType ?? 'n/a'}`);
         console.log(`  State: ${wallet.state}`);
         console.log(`  Created: ${wallet.createDate}`);
       });

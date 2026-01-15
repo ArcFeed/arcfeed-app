@@ -102,7 +102,9 @@ async function main() {
       console.log(`   curl http://localhost:3001/api/wallets/transactions/${transactionId}\n`);
 
       // Poll for transaction completion (optional)
-      if (state === "INITIATED" || state === "PENDING") {
+      // The SDK may type `state` as a specific union; coerce to string for comparison
+      const stateStr = String(state);
+      if (stateStr === "INITIATED" || stateStr === "PENDING") {
         console.log("🔄 Polling for transaction completion (this may take a moment)...\n");
         
         let attempts = 0;

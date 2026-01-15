@@ -31,7 +31,9 @@ async function main() {
       console.log("=".repeat(60));
       console.log(`ID: ${walletSet.id}`);
       console.log(`Name: ${walletSetName}`);
-      console.log(`Custody Type: ${walletSet.custodyType}`);
+      // Some SDK responses may not include `custodyType` in the typed interface
+      // Use a safe access with a fallback to avoid TypeScript errors
+      console.log(`Custody Type: ${(walletSet as any).custodyType ?? (walletSet as any).custody ?? 'n/a'}`);
       console.log(`Created: ${walletSet.createDate}`);
       console.log(`Updated: ${walletSet.updateDate}`);
       console.log("=".repeat(60));
