@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Environment variables
+.env
+
+# Sensitive recovery files
+recovery/
+recovery_file_*.dat
+*.dat
+
+# Build output
+dist/
+build/
+
+# Logs
+*.log
+npm-debug.log*
