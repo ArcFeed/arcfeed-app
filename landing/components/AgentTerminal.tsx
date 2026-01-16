@@ -75,19 +75,19 @@ export default function AgentTerminal() {
 
   return (
     <div className="max-w-5xl mx-auto">
-      <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl shadow-2xl overflow-hidden border border-slate-700/50">
+      <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden border border-slate-700/50">
         {/* Terminal Header */}
-        <div className="bg-gradient-to-r from-slate-800 to-slate-700 px-4 py-3 flex items-center justify-between border-b border-slate-600/50">
-          <div className="flex items-center space-x-2">
-            <div className="w-3 h-3 rounded-full bg-red-500 shadow-lg"></div>
-            <div className="w-3 h-3 rounded-full bg-yellow-500 shadow-lg"></div>
-            <div className="w-3 h-3 rounded-full bg-green-500 shadow-lg"></div>
-            <span className="ml-4 text-slate-400 text-sm font-mono">agent-terminal</span>
+        <div className="bg-gradient-to-r from-slate-800 to-slate-700 px-3 sm:px-4 py-2.5 sm:py-3 flex items-center justify-between border-b border-slate-600/50">
+          <div className="flex items-center space-x-1.5 sm:space-x-2">
+            <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-500 shadow-lg"></div>
+            <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-yellow-500 shadow-lg"></div>
+            <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-green-500 shadow-lg"></div>
+            <span className="ml-2 sm:ml-4 text-slate-400 text-xs sm:text-sm font-mono hidden xs:inline">agent-terminal</span>
           </div>
           <button
             onClick={simulateAgentFlow}
             disabled={isRunning}
-            className={`px-5 py-2 rounded-xl text-sm font-semibold transition-all duration-300 ${
+            className={`px-3 sm:px-5 py-1.5 sm:py-2 rounded-lg sm:rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 ${
               isRunning
                 ? 'bg-slate-700 text-slate-500 cursor-not-allowed'
                 : 'bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:shadow-glow-md hover:scale-105'
@@ -98,7 +98,7 @@ export default function AgentTerminal() {
         </div>
 
         {/* Terminal Content */}
-        <div className="p-6 h-[500px] overflow-y-auto font-mono text-sm">
+        <div className="p-3 sm:p-6 h-[350px] sm:h-[500px] overflow-y-auto font-mono text-xs sm:text-sm">
           <AnimatePresence>
             {logs.map((log) => (
               <motion.div
@@ -124,36 +124,36 @@ export default function AgentTerminal() {
         </div>
 
         {/* Terminal Footer */}
-        <div className="bg-gradient-to-r from-slate-800 to-slate-700 px-4 py-3 flex items-center justify-between text-xs text-slate-400 border-t border-slate-600/50">
+        <div className="bg-gradient-to-r from-slate-800 to-slate-700 px-3 sm:px-4 py-2.5 sm:py-3 flex flex-col sm:flex-row items-center justify-between text-[10px] sm:text-xs text-slate-400 border-t border-slate-600/50 gap-1 sm:gap-0">
           <div className="font-medium">HTTP 402 Payment Protocol Demo</div>
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-2 sm:space-x-4">
             <span>Arc Network Testnet</span>
-            <span>•</span>
+            <span className="hidden sm:inline">•</span>
             <span>USDC Payments</span>
           </div>
         </div>
       </div>
 
       {/* Info Cards Below Terminal */}
-      <div className="grid md:grid-cols-3 gap-6 mt-8">
-        <div className="bg-white rounded-2xl p-6 shadow-xl border border-slate-100 hover:shadow-2xl hover:border-purple-200 transition-all duration-300 hover:-translate-y-1">
-          <div className="text-4xl mb-3">⚡</div>
-          <h3 className="font-bold text-slate-900 mb-2 text-lg">Fast Payments</h3>
-          <p className="text-sm text-slate-600 leading-relaxed">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mt-6 sm:mt-8">
+        <div className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-xl border border-slate-100 hover:shadow-2xl hover:border-purple-200 transition-all duration-300 hover:-translate-y-1">
+          <div className="text-3xl sm:text-4xl mb-2 sm:mb-3">⚡</div>
+          <h3 className="font-bold text-slate-900 mb-1.5 sm:mb-2 text-base sm:text-lg">Fast Payments</h3>
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
             Arc Network confirms USDC transfers in under 1 second
           </p>
         </div>
-        <div className="bg-white rounded-2xl p-6 shadow-xl border border-slate-100 hover:shadow-2xl hover:border-purple-200 transition-all duration-300 hover:-translate-y-1">
-          <div className="text-4xl mb-3">💰</div>
-          <h3 className="font-bold text-slate-900 mb-2 text-lg">Micropayments</h3>
-          <p className="text-sm text-slate-600 leading-relaxed">
+        <div className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-xl border border-slate-100 hover:shadow-2xl hover:border-purple-200 transition-all duration-300 hover:-translate-y-1">
+          <div className="text-3xl sm:text-4xl mb-2 sm:mb-3">💰</div>
+          <h3 className="font-bold text-slate-900 mb-1.5 sm:mb-2 text-base sm:text-lg">Micropayments</h3>
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
             Pay $0.001-$0.005 per API call. No monthly subscriptions.
           </p>
         </div>
-        <div className="bg-white rounded-2xl p-6 shadow-xl border border-slate-100 hover:shadow-2xl hover:border-purple-200 transition-all duration-300 hover:-translate-y-1">
-          <div className="text-4xl mb-3">🔒</div>
-          <h3 className="font-bold text-slate-900 mb-2 text-lg">Trustless</h3>
-          <p className="text-sm text-slate-600 leading-relaxed">
+        <div className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-xl border border-slate-100 hover:shadow-2xl hover:border-purple-200 transition-all duration-300 hover:-translate-y-1 sm:col-span-2 md:col-span-1">
+          <div className="text-3xl sm:text-4xl mb-2 sm:mb-3">🔒</div>
+          <h3 className="font-bold text-slate-900 mb-1.5 sm:mb-2 text-base sm:text-lg">Trustless</h3>
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
             Blockchain verification. No API keys or authentication needed.
           </p>
         </div>
