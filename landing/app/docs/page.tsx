@@ -55,7 +55,7 @@ export default function DocsPage() {
                 </p>
                 <div className="bg-slate-900 rounded-lg p-4 overflow-x-auto">
                   <pre className="text-sm text-green-400">
-{`curl https://api.arcfeed.com/api/data/yields/aave
+{`curl https://arcfeed-app.vercel.app/api/data/yields/aave
 
 # Response:
 HTTP/1.1 402 Payment Required
@@ -106,7 +106,7 @@ const txHash = response.data.transactionHash`}
                 </p>
                 <div className="bg-slate-900 rounded-lg p-4 overflow-x-auto">
                   <pre className="text-sm text-green-400">
-{`curl https://api.arcfeed.com/api/data/yields/aave \\
+{`curl https://arcfeed-app.vercel.app/api/data/yields/aave \\
   -H "X-Payment-Tx: 0xabc123def456..."
 
 # Response:
