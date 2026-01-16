@@ -89,7 +89,7 @@ export function ChatInterface() {
             maxWidth: '768px',
             width: '100%',
             margin: '0 auto',
-            padding: '0 1.5rem',
+            padding: '0 1rem',
             display: 'flex',
             flexDirection: 'column',
             gap: '1.5rem',
@@ -162,7 +162,7 @@ export function ChatInterface() {
               <div
                 className="fade-in"
                 style={{
-                  maxWidth: '85%',
+                  maxWidth: window.innerWidth < 768 ? '90%' : '85%',
                   padding: message.role === 'user' ? '0.75rem 1rem' : '1rem 1.25rem',
                   borderRadius: message.role === 'user' ? '20px 20px 4px 20px' : '20px 20px 20px 4px',
                   backgroundColor: message.role === 'user' ? 'var(--primary)' : '#f8f9fa',
@@ -243,7 +243,7 @@ export function ChatInterface() {
       <div
         style={{
           borderTop: '1px solid rgba(0,0,0,0.08)',
-          padding: '1.5rem',
+          padding: window.innerWidth < 768 ? '1rem' : '1.5rem',
           backgroundColor: '#ffffff',
         }}
       >

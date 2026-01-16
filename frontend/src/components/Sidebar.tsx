@@ -3,17 +3,36 @@ interface SidebarProps {
   onNavigate: (view: string) => void;
   currentView: string;
   selectedWalletId: string | null;
+  isMobile?: boolean;
+  onClose?: () => void;
 }
 
-export function Sidebar({ isOpen, onNavigate, currentView, selectedWalletId }: SidebarProps) {
+export function Sidebar({ isOpen, onNavigate, currentView, selectedWalletId, isMobile = false, onClose }: SidebarProps) {
   return (
     <>
+      {/* Backdrop overlay for mobile */}
+      {isMobile && isOpen && (
+        <div
+          onClick={onClose}
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            zIndex: 999,
+            transition: 'opacity 0.3s ease',
+          }}
+        />
+      )}
+
       {/* Sidebar */}
       <div
         className={`sidebar ${isOpen ? 'sidebar-open' : 'sidebar-closed'}`}
         style={{
           position: 'fixed',
-          left: 0,
+          left: isMobile ? (isOpen ? 0 : '-260px') : 0,
           top: 0,
           height: '100vh',
           width: '260px',
@@ -22,6 +41,7 @@ export function Sidebar({ isOpen, onNavigate, currentView, selectedWalletId }: S
           overflowY: 'auto',
           zIndex: 1000,
           borderRight: '1px solid rgba(255,255,255,0.1)',
+          transition: 'left 0.3s ease',
         }}
       >
         <div style={{ padding: '1.5rem' }}>
