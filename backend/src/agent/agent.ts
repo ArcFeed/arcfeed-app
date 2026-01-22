@@ -212,11 +212,22 @@ export async function processMessage(
     // If we have tool results, make sure they're included in the response
     const toolMessages = messages.filter((m: any) => m instanceof ToolMessage);
     const lastToolMessage = toolMessages[toolMessages.length - 1];
-    
+
     // If the response doesn't include the tool results and we have tool results, append them
-    if (lastToolMessage && finalContentStr && !finalContentStr.includes('Available E-Books')) {
+    // Check for DeFi data patterns that should be included in the response
+    if (lastToolMessage && finalContentStr) {
       const toolResult = lastToolMessage.content as string;
-      if (toolResult.includes('Available E-Books') || toolResult.includes('ebook')) {
+      // Check for data purchase results, data products list, or transaction data
+      const hasDataPayload = toolResult.includes('Payment Successful') ||
+                            toolResult.includes('Data:') ||
+                            toolResult.includes('Available DeFi Data Products') ||
+                            toolResult.includes('Search Results') ||
+                            toolResult.includes('Transaction ID:') ||
+                            toolResult.includes('Wallet balance:') ||
+                            toolResult.includes('Transactions (');
+
+      // If the tool result contains actual data that should be shown to the user
+      if (hasDataPayload && !finalContentStr.includes(toolResult.substring(0, 50))) {
         return `${finalContentStr}\n\n${toolResult}`;
       }
     }
