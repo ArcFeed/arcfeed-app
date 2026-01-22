@@ -5,6 +5,7 @@ import walletRoutes from './routes/wallet.routes';
 import chatRoutes from './routes/chat.routes';
 import marketplaceRoutes from './routes/marketplace.routes';
 import dataRoutes from './routes/data.routes';
+import demoRoutes from './routes/demo.routes';
 
 dotenv.config();
 
@@ -37,6 +38,9 @@ app.use('/api/marketplace', marketplaceRoutes);
 // Data routes (HTTP 402 protected)
 app.use('/api/data', dataRoutes);
 
+// Demo routes (HTTP 402 demo)
+app.use('/api/demo', demoRoutes);
+
 // Start server
 app.listen(PORT, () => {
   console.log(`🚀 Server is running on http://localhost:${PORT}`);
@@ -44,5 +48,6 @@ app.listen(PORT, () => {
   console.log(`💬 Chat API available at http://localhost:${PORT}/api/chat`);
   console.log(`🛒 Marketplace API available at http://localhost:${PORT}/api/marketplace`);
   console.log(`📊 Data API (x402) available at http://localhost:${PORT}/api/data`);
+  console.log(`🧪 Demo API (HTTP 402) available at http://localhost:${PORT}/api/demo`);
   console.log(`🌐 Powered by Arc Network`);
 });
