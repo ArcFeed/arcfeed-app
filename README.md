@@ -427,31 +427,6 @@ frontend/
 │   └── App.tsx
 ```
 
-## 🎯 Hackathon Demo Script
-
-### 1. Show the Marketplace (30 seconds)
-- Open Data Products tab
-- Highlight 14 DeFi data feeds
-- Point out micropayment prices (0.001-0.005 USDC)
-- Show Arc Network badge
-
-### 2. Demo AI Agent (2 minutes)
-- Chat: "What data is available?"
-- Chat: "Get me Aave yields"
-- Show live payment + data retrieval
-- Highlight transaction on Arc Network
-
-### 3. Explain HTTP 402 (1 minute)
-- Show Postman/curl making request
-- Show 402 response with payment instructions
-- Show retry with payment proof
-- Data returned instantly
-
-### 4. Arc Network Benefits (30 seconds)
-- Ultra-low fees perfect for micropayments
-- Fast confirmations for real-time data
-- Future-ready for high-frequency trading bots
-
 ## 🔐 Security
 
 - **API Key Authentication**: All endpoints require valid API key
